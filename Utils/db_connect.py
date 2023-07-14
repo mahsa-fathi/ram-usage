@@ -10,6 +10,9 @@ class SQLite:
         self.init_db()
 
     def init_db(self):
+        """
+        This function creates the ram table if it does not already exist
+        """
         self.cur.execute("CREATE TABLE IF NOT EXISTS ram ("
                          "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                          "created_at DATETIME DEFAULT current_timestamp, "
@@ -19,6 +22,10 @@ class SQLite:
         self.con.commit()
 
     def fetch_query(self, query, params=()):
+        """
+        This function inputs query and query params and executes the query
+        It returns th fetched results if there were no errors
+        """
         try:
             result = self.cur.execute(query, params)
             return result.fetchall()
@@ -27,6 +34,10 @@ class SQLite:
             return None
 
     def commit_query(self, query, params=()):
+        """
+        This function is used for queries that need to be committed such as insert and create table
+        This function returns True when there were no errors and False otherwise
+        """
         try:
             self.cur.execute(query, params)
             self.con.commit()
@@ -37,6 +48,9 @@ class SQLite:
             return False
 
     def close_connection(self):
+        """
+        This function close any connection to the database
+        """
         try:
             self.cur.close()
             self.con.close()
