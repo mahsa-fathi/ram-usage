@@ -5,8 +5,9 @@ import sqlite3
 class SQLite:
 
     def __init__(self):
-        self.con = sqlite3.connect("./db/hpds.db")
+        self.con = sqlite3.connect("./db/hpds.db", check_same_thread=False)
         self.cur = self.con.cursor()
+        self.init_db()
 
     def init_db(self):
         self.cur.execute("CREATE TABLE IF NOT EXISTS ram ("
