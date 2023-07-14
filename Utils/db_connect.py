@@ -1,11 +1,18 @@
-from utils.logger import get_module_logger
 import sqlite3
+import sys
+import os
+
+PROJECT_NAME = 'ram-usage/'
+ROOT_DIR = str(str(os.path.realpath(__file__)).split(PROJECT_NAME)[0]) + PROJECT_NAME
+sys.path.append(ROOT_DIR)
+
+from utils.logger import get_module_logger
 
 
 class SQLite:
 
     def __init__(self):
-        self.con = sqlite3.connect("./db/hpds.db", check_same_thread=False)
+        self.con = sqlite3.connect(ROOT_DIR + "db/hpds.db", check_same_thread=False)
         self.cur = self.con.cursor()
         self.init_db()
 

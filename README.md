@@ -55,6 +55,15 @@ The RAM model contains the following fields:
 | used        | Real     | True     |
 
 
+## Docker
+
+The image can be built and then run using the following commands.
+
+```bash
+docker build -t app .
+docker run -p 8080:8080 app
+```
+
 ## Author
 
 [Mahsa Fathi](https://www.linkedin.com/in/mahsa-fathi-68216112b/)
