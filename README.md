@@ -19,6 +19,12 @@ The FastAPI service can start using the following command.
 uvicorn services.api:app --host 0.0.0.0 --port 8080
 ```
 
+They can also run in parallel using the following command.
+
+```bash
+. run.sh
+```
+
 ## Project layout
 
 The code for both backend and api is contained in the `service` folder. All of the test are in the `tests` folder. 

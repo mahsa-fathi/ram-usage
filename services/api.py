@@ -1,6 +1,12 @@
 from fastapi import HTTPException, status, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import sys
+import os
+
+PROJECT_NAME = 'ram-usage/'
+ROOT_DIR = str(str(os.path.realpath(__file__)).split(PROJECT_NAME)[0]) + PROJECT_NAME
+sys.path.append(ROOT_DIR)
+
 from utils.db_connect import SQLite
 from utils.logger import get_module_logger
 from utils.jsonify import jsonify_ram_results
