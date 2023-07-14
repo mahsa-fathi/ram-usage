@@ -64,6 +64,33 @@ docker build -t app .
 docker run -p 8080:8080 app
 ```
 
+## Examples
+
+A call is shown below
+
+```bash
+curl --location 'http://localhost:8080/ram/2'
+```
+
+Result:
+```json
+[
+    {
+        "TIME": "2023-07-14 18:52:45",
+        "TOTAL": 7922.4921875,
+        "FREE": 3371.98828125,
+        "USED": 1130.32421875
+    },
+    {
+        "TIME": "2023-07-14 18:51:45",
+        "TOTAL": 7922.4921875,
+        "FREE": 3376.0625,
+        "USED": 1126.26953125
+    }
+]
+
+```
+
 ## Author
 
 [Mahsa Fathi](https://www.linkedin.com/in/mahsa-fathi-68216112b/)
